@@ -1,0 +1,21 @@
+<div class="text-inner component-inner">
+    {{> component this}}
+    <div class="component-body">
+	    <div class="textEntry-input">
+	    	<textarea placeholder="{{placeholder}}" class="textEntry-item-textbox" cols="2" rows="10"></textarea>
+	    </div>
+	</div>
+    <div class="textEntry-button">
+    	<a href="#" class="button" title="{{button}}">{{button}}</a>
+    </div>
+
+    <div class="textEntry-feedback hidden">
+    	<div class="component-body">
+			<div class="component-body-inner">{{{_feedback.body}}}</div>
+		</div>
+		<div class="component-instruction">
+			<div class="component-instruction-inner">{{{_feedback.instruction}}}</div>
+		</div>
+    </div>
+
+</div>

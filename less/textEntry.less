@@ -1,0 +1,32 @@
+.textEntry-component {
+
+    .textEntry-input {
+        padding: @component-body-padding;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .textEntry-item-textbox {
+        height: 150px;
+        background-color: #fff;
+        padding: 10px;
+
+        // Tablet and desktop
+        @media all and (min-width: @device-width-medium) {
+            width: 95%;
+        }
+        // Mobile
+        @media all and (max-width: @device-width-small) {
+            width: 90%;
+        }
+    }
+
+    .textEntry-feedback {
+        position: relative;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+}
