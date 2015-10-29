@@ -1,8 +1,3 @@
-/*
-* adapt-contrib-text
-* License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
-* Maintainers - Daryl Hedley <darylhedley@hotmail.com>, Brian Quinn <brian@learningpool.com>
-*/
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');
@@ -62,6 +57,8 @@ define(function(require) {
             event.preventDefault();
             this.$('.textEntry-button').addClass('hidden');
             this.$('.textEntry-feedback').removeClass('hidden');
+            this.$('.textEntry-feedback-body-inner').a11y_on(true);
+            this.$('.textEntry-feedback-body-inner').a11y_focus();
         },
         
     });

@@ -1,17 +1,16 @@
 {
   "name": "adapt-textEntry",
-  "version": "1.1.5",
-  "homepage": "https://github.com/darylhedley/adapt-textEntry",
-  "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>"
-  ],
-  "displayName" : "Text",
-  "component" : "text",
-  "description": "A simple core contributed text component",
+  "version": "2.0.0",
+  "framework": "2.0.3",
+  "homepage": "https://github.com/deltanet/adapt-textEntry",
+  "issues": "https://github.com/deltanet/adapt-textEntry/issues",
+  "description": "A simple text entry component",
   "main": "/js/adapt-textEntry.js",
+  "displayName" : "Text Entry",
+  "component" : "text entry",
   "keywords": [
     "adapt-plugin",
     "adapt-component"
   ],
-  "license": "GPLv3"
+  "license": "GPL-3.0"
 }
