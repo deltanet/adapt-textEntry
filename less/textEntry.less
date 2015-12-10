@@ -7,18 +7,12 @@
     }
 
     .textEntry-item-textbox {
-        height: 150px;
-        background-color: #fff;
-        padding: 10px;
-
-        // Tablet and desktop
-        @media all and (min-width: @device-width-medium) {
-            width: 95%;
-        }
-        // Mobile
-        @media all and (max-width: @device-width-small) {
-            width: 90%;
-        }
+        border: 1px solid @item-color;
+        display: block;
+        margin: 0;
+        padding: 1%;
+        resize: none;
+        width: 98%;
     }
 
     .textEntry-feedback {

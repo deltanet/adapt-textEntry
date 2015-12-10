@@ -4,7 +4,7 @@
     "_type":"component",
     "_component":"textEntry",
     "_classes":"",
-    "_layout":"left",
+    "_layout":"full",
     "title":"Title text",
     "displayTitle":"Display title text",
     "body":"Body text",
@@ -13,8 +13,25 @@
     "button": "Submit",
     "_feedback": {
         "body": "Feedback text.",
+        "bodyReduced": "Reduced feedback text.",
         "instruction": "Feedback instruction text."
-    }
+    },
+    "displayTitleReduced": "Reduced title",
+    "bodyReduced": "Reduced text",
+    "_reducedText": {
+        "_isEnabled": true
+    },
+    "_audio": {
+        "_isEnabled": true,
+        "_showControls": true,
+        "_autoplay": true,
+        "_channel": 0,
+        "_location": "top-right",
+        "_media": {
+            "mp3": "course/en/audio/***.mp3",
+            "ogg": "course/en/audio/***.ogg"
+        }
+    },
 }
 
 // Accessibility supported courses require ARIA instruction - apply to _globals in course.json
