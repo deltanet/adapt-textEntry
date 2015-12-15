@@ -28,11 +28,24 @@ define(function(require) {
         },
 
         onBtnClicked: function(event) {
-            event.preventDefault();
-            this.$('.textEntry-button').addClass('hidden');
-            this.$('.textEntry-feedback').removeClass('hidden');
-            this.$('.textEntry-feedback-body-inner').a11y_on(true);
-            this.$('.textEntry-feedback-body-inner').a11y_focus();
+            if (event) event.preventDefault();
+
+            $(event.currentTarget).html(this.model.get("_buttons")._showFeedback.buttonText);
+            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._showFeedback.ariaLabel);
+
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.audio.textSize == 1) {
+                var popupObject = {
+                    title: this.model.get("_feedback").titleReduced,
+                    body:  this.model.get("_feedback").bodyReduced
+                };
+            } else {
+                var popupObject = {
+                    title: this.model.get("_feedback").title,
+                    body: this.model.get("_feedback").body
+                };
+            }
+
+            Adapt.trigger("notify:popup", popupObject);
 
             this.setCompletionStatus();
         },

@@ -1,19 +1,13 @@
-<div class="text-inner component-inner" role="region" aria-label="{{_globals._components._textEntry.ariaRegion}}">
+<div class="textEntry-inner component-inner" role="region" aria-label="{{_globals._components._textEntry.ariaRegion}}">
     {{> component this}}
-    <div class="component-body">
-	    <div class="textEntry-input">
-	    	<textarea placeholder="{{placeholder}}" class="textEntry-item-textbox" cols="2" rows="10"></textarea>
-	    </div>
+    <div class="textEntry-widget component-widget">
+	    <div class="component-body">
+		    <div class="textEntry-input">
+		    	<textarea placeholder="{{placeholder}}" class="textEntry-item-textbox" cols="2" rows="10"></textarea>
+		    </div>
+		</div>
+	    <button class="textEntry-button button" role="button" aria-label="{{_buttons._submit.ariaLabel}}">
+	        {{_buttons._submit.buttonText}}
+	    </button>
 	</div>
-    <div class="textEntry-button">
-    	<button class="button" role="button" title="{{button}}" aria-label="{{button}}">{{button}}</button>
-    </div>
-    <div class="textEntry-feedback hidden">
-    	<div class="textEntry-feedback-body component-body">
-			<div class="textEntry-feedback-body-inner component-body-inner">{{{a11y_text _feedback.body}}}</div>
-		</div>
-		<div class="textEntry-feedback-instruction component-instruction">
-			<div class="textEntry-feedback-instruction-inner component-instruction-inner">{{{a11y_text _feedback.instruction}}}</div>
-		</div>
-    </div>
 </div>
