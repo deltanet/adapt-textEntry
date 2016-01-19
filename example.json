@@ -14,7 +14,11 @@
         "title": "Title",
         "titleReduced": "Title",
         "body": "Feedback text.",
-        "bodyReduced": "Reduced feedback text."
+        "bodyReduced": "Reduced feedback text.",
+        "_audio": {
+            "mp3": "course/en/audio/***.mp3",
+            "ogg": "course/en/audio/***.ogg"
+        }
     },
     "_buttons": {
         "_submit": {
