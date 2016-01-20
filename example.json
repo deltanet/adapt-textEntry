@@ -10,15 +10,10 @@
     "body":"Body text",
     "instruction":"Instruction text",
     "placeholder": "Enter your thoughts here",
-    "_feedback": {
-        "title": "Title",
-        "titleReduced": "Title",
-        "body": "Feedback text.",
-        "bodyReduced": "Reduced feedback text.",
-        "_audio": {
-            "mp3": "course/en/audio/***.mp3",
-            "ogg": "course/en/audio/***.ogg"
-        }
+    "displayTitleReduced": "Reduced title",
+    "bodyReduced": "Reduced text",
+    "_reducedText": {
+        "_isEnabled": true
     },
     "_buttons": {
         "_submit": {
@@ -30,10 +25,14 @@
             "ariaLabel": "Select here to see the answer."
         }
     },
-    "displayTitleReduced": "Reduced title",
-    "bodyReduced": "Reduced text",
-    "_reducedText": {
-        "_isEnabled": true
+    "_feedback": {
+        "title": "Title",
+        "titleReduced": "Title",
+        "body": "Feedback text.",
+        "bodyReduced": "Reduced feedback text.",
+        "_audio": {
+            "src": "course/en/audio/***.mp3"
+        }
     },
     "_audio": {
         "_isEnabled": true,
@@ -42,8 +41,8 @@
         "_channel": 0,
         "_location": "top-right",
         "_media": {
-            "mp3": "course/en/audio/***.mp3",
-            "ogg": "course/en/audio/***.ogg"
+            "desktop": "course/en/audio/***.mp3",
+            "mobile": "course/en/audio/***.mp3"
         }
     },
 }
