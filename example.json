@@ -33,18 +33,7 @@
         "_audio": {
             "src": "course/en/audio/***.mp3"
         }
-    },
-    "_audio": {
-        "_isEnabled": true,
-        "_showControls": true,
-        "_autoplay": true,
-        "_channel": 0,
-        "_location": "top-right",
-        "_media": {
-            "desktop": "course/en/audio/***.mp3",
-            "mobile": "course/en/audio/***.mp3"
-        }
-    },
+    }
 }
 
 // Accessibility supported courses require ARIA instruction - apply to _globals in course.json

@@ -18,6 +18,157 @@
   		"inputType": "Text",
   		"validators": [],
   		"help": "This is the instruction text"
-		}
+		},
+    "displayTitleReduced": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Reduced Text Display Title",
+      "inputType": "Text",
+      "validators": []
+    },
+    "bodyReduced": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Reduced Text Body",
+      "inputType": "TextArea",
+      "validators": []
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Placeholder Text",
+      "inputType": "Text",
+      "validators": []
+    },
+    "_reducedText": {
+      "type":"object",
+      "required":false,
+      "title": "Reduced Text Options",
+      "help": "The Audio extension must be installed for reduced text options to work",
+      "properties":{
+        "_isEnabled": {
+          "type":"boolean",
+          "required":false,
+          "default": true,
+          "title": "Reduced Text Enabled",
+          "inputType": { "type": "Boolean", "options": [false, true]},
+          "validators": []
+        }
+      }
+    },
+    "_buttons": {
+      "type":"object",
+      "title": "Buttons",
+      "required": false,
+      "properties":{
+        "_submit": {
+          "type":"object",
+          "title": "Submit",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text for the submit button"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the submit button"
+            }
+          }
+        },
+        "_showFeedback": {
+          "type":"object",
+          "title": "Show Feedback",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text to show feedback"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the show feedback button"
+            }
+          }
+        }
+      }
+    },
+    "_feedback": {
+      "type":"object",
+      "required":true,
+      "title": "Feedback",
+      "properties":{
+        "title": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Feedback Title",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Optional Title"
+        },
+        "titleReduced": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Feedback Title - Reduced Text",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Optional Title"
+        },
+        "body": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Feedback Body Text",
+          "inputType": "Text",
+          "validators": []
+        },
+        "bodyReduced": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Feedback Body Text - Reduced Text",
+          "inputType": "Text",
+          "validators": []
+        },
+        "_audio": {
+          "type": "object",
+          "required": false,
+          "properties": {
+            "src": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Audio",
+              "inputType": "Asset:audio",
+              "validators": [],
+              "help": "Feedback audio"
+            }
+          }
+        }
+      }
+    }
   }
 }
