@@ -3,7 +3,7 @@ define(function(require) {
     var ComponentView = require('coreViews/componentView');
     var Adapt = require('coreJS/adapt');
 
-    var TextEntry = ComponentView.extend({
+    var TextEntryAudio = ComponentView.extend({
 
         events: {
             'click .textEntry-button':'onBtnClicked'
@@ -76,6 +76,6 @@ define(function(require) {
         
     });
     
-    Adapt.register("textEntry", TextEntry);
+    Adapt.register("textEntry-audio", TextEntryAudio);
     
 });
