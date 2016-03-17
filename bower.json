@@ -8,6 +8,9 @@
   "main": "/js/adapt-textEntry-audio.js",
   "displayName" : "Text Entry Audio",
   "component" : "textEntry-audio",
+  "assetFields" : [
+    "_feedback._audio.src"
+  ],
   "keywords": [
     "adapt-plugin",
     "adapt-component"
