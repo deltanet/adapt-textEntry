@@ -30,18 +30,21 @@ define(function(require) {
         onBtnClicked: function(event) {
             if (event) event.preventDefault();
 
+            // Store user answer
+            this.userAnswer = this.$('.textEntry-item-textbox').val();
+
             $(event.currentTarget).html(this.model.get("_buttons")._showFeedback.buttonText);
             $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._showFeedback.ariaLabel);
 
-            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.audio.textSize == 1) {
+            if(this.model.get("_showUserAnswer")) {
                 var popupObject = {
-                    title: this.model.get("_feedback").titleReduced,
-                    body:  this.model.get("_feedback").bodyReduced
+                    title: this.model.get("_feedback").title,
+                    body: "<div class='notify-container'><div class='textEntry-user-title'>" + this.model.get("_feedback").userTitle + "</div><div class='textEntry-user-answer'>" + this.userAnswer + "</div><div class='textEntry-feedback-title'>" + this.model.get("_feedback").answerTitle + "</div><div class='textEntry-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
                 };
             } else {
                 var popupObject = {
-                    title: this.model.get("_feedback").title,
-                    body: this.model.get("_feedback").body
+                    title: this.model.get("_feedback").answerTitle,
+                    body: "<div class='notify-container'><div class='textEntry-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
                 };
             }
 
@@ -65,11 +68,9 @@ define(function(require) {
                 if(value == 0) {
                     this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
                     this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
-                    this.$('.textEntry-feedback-body-inner').html(this.model.get('_feedback').body).a11y_text();
                 } else {
                     this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
                     this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
-                    this.$('.textEntry-feedback-body-inner').html(this.model.get('_feedback').bodyReduced).a11y_text();
                 }
             }
         }
