@@ -5,6 +5,7 @@
     "_component":"textEntry-audio",
     "_classes":"",
     "_layout":"full",
+    "_showUserAnswer": true,
     "title":"Title text",
     "displayTitle":"Display title text",
     "body":"Body text",
@@ -27,9 +28,9 @@
     },
     "_feedback": {
         "title": "Title",
-        "titleReduced": "Title",
+        "answerTitle": "Answer title",
+        "userTitle": "User title",
         "body": "Feedback text.",
-        "bodyReduced": "Reduced feedback text.",
         "_audio": {
             "src": "course/en/audio/***.mp3"
         }
