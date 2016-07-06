@@ -6,20 +6,13 @@ define(function(require) {
     var TextEntryAudio = ComponentView.extend({
 
         events: {
-            'click .textEntry-button':'onBtnClicked'
+            'click .textEntry-audio-button':'onBtnClicked'
         },
 
-        preRender: function() {
-            // Listen for text change on audio extension
-            this.listenTo(Adapt, "audio:changeText", this.replaceText);
-        },
+        preRender: function() {},
 
         postRender: function() {
             this.setReadyStatus();
-
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
-                this.replaceText(Adapt.audio.textSize);
-            }
         },
 
         remove: function() {
@@ -31,7 +24,7 @@ define(function(require) {
             if (event) event.preventDefault();
 
             // Store user answer
-            this.userAnswer = this.$('.textEntry-item-textbox').val();
+            this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
 
             $(event.currentTarget).html(this.model.get("_buttons")._showFeedback.buttonText);
             $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._showFeedback.ariaLabel);
@@ -39,12 +32,12 @@ define(function(require) {
             if(this.model.get("_showUserAnswer")) {
                 var popupObject = {
                     title: this.model.get("_feedback").title,
-                    body: "<div class='notify-container'><div class='textEntry-user-title'>" + this.model.get("_feedback").userTitle + "</div><div class='textEntry-user-answer'>" + this.userAnswer + "</div><div class='textEntry-feedback-title'>" + this.model.get("_feedback").answerTitle + "</div><div class='textEntry-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
+                    body: "<div class='notify-container'><div class='textEntry-audio-user-title'>" + this.model.get("_feedback").userTitle + "</div><div class='textEntry-audio-user-answer'>" + this.userAnswer + "</div><div class='textEntry-audio-feedback-title'>" + this.model.get("_feedback").answerTitle + "</div><div class='textEntry-audio-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
                 };
             } else {
                 var popupObject = {
                     title: this.model.get("_feedback").answerTitle,
-                    body: "<div class='notify-container'><div class='textEntry-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
+                    body: "<div class='notify-container'><div class='textEntry-audio-feedback-body'>" + this.model.get("_feedback").body + "</div></div>"
                 };
             }
 
@@ -58,21 +51,6 @@ define(function(require) {
             ///// End of Audio /////
 
             this.setCompletionStatus();
-        },
-
-        // Reduced text
-        replaceText: function(value) {
-            // If enabled
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
-                // Change component title, body and feedback
-                if(value == 0) {
-                    this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
-                    this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
-                } else {
-                    this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
-                    this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
-                }
-            }
         }
 
     });
