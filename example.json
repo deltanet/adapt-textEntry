@@ -11,11 +11,6 @@
     "body":"Body text",
     "instruction":"Instruction text",
     "placeholder": "Enter your thoughts here",
-    "displayTitleReduced": "Reduced title",
-    "bodyReduced": "Reduced text",
-    "_reducedText": {
-        "_isEnabled": true
-    },
     "_buttons": {
         "_submit": {
             "buttonText": "Submit",
