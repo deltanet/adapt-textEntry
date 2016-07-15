@@ -44,7 +44,7 @@ define(function(require) {
             Adapt.trigger("notify:popup", popupObject);
 
             ///// Audio /////
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isEnabled && this.model.has('_audio') && this.model.get('_audio')._isEnabled && Adapt.audio.audioClip[this.model.get('_audio')._channel].status==1) {
+            if (this.model.has('_audio') && this.model.get('_audio')._isEnabled && Adapt.audio.audioClip[this.model.get('_audio')._channel].status==1) {
                 // Trigger audio
                 Adapt.trigger('audio:playAudio', this.model.get("_feedback")._audio.src, this.model.get('_id'), this.model.get('_audio')._channel);
             }
