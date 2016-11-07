@@ -17,7 +17,8 @@
   		"default": "",
   		"inputType": "Text",
   		"validators": [],
-  		"help": "This is the instruction text"
+  		"help": "This is the instruction text",
+      "translatable": true
 		},
     "placeholder": {
       "type": "string",
@@ -25,7 +26,8 @@
       "default": "",
       "title": "Placeholder Text",
       "inputType": "Text",
-      "validators": []
+      "validators": [],
+      "translatable": true
     },
     "_buttons": {
       "type":"object",
@@ -43,7 +45,8 @@
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Button label text for the submit button"
+              "help": "Button label text for the submit button",
+              "translatable": true
             },
             "ariaLabel": {
               "type":"string",
@@ -52,7 +55,8 @@
               "title": "",
               "inputType": "Text",
               "validators": [],
-              "help": "Aria label for the submit button"
+              "help": "Aria label for the submit button",
+              "translatable": true
             }
           }
         },
@@ -67,7 +71,8 @@
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Button label text to show feedback"
+              "help": "Button label text to show feedback",
+              "translatable": true
             },
             "ariaLabel": {
               "type":"string",
@@ -76,7 +81,8 @@
               "title": "",
               "inputType": "Text",
               "validators": [],
-              "help": "Aria label for the show feedback button"
+              "help": "Aria label for the show feedback button",
+              "translatable": true
             }
           }
         }
@@ -94,7 +100,8 @@
           "title": "Feedback Title",
           "inputType": "Text",
           "validators": [],
-          "help": "Optional Title"
+          "help": "Optional Title",
+          "translatable": true
         },
         "titleReduced": {
           "type":"string",
@@ -103,7 +110,8 @@
           "title": "Feedback Title - Reduced Text",
           "inputType": "Text",
           "validators": [],
-          "help": "Optional Title"
+          "help": "Optional Title",
+          "translatable": true
         },
         "body": {
           "type":"string",
@@ -111,7 +119,8 @@
           "default": "",
           "title": "Feedback Body Text",
           "inputType": "Text",
-          "validators": []
+          "validators": [],
+          "translatable": true
         },
         "bodyReduced": {
           "type":"string",
@@ -119,7 +128,8 @@
           "default": "",
           "title": "Feedback Body Text - Reduced Text",
           "inputType": "Text",
-          "validators": []
+          "validators": [],
+          "translatable": true
         },
         "_audio": {
           "type": "object",
