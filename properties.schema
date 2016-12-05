@@ -41,7 +41,7 @@
             "buttonText": {
               "type":"string",
               "required": false,
-              "default": "",
+              "default": "Submit",
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
@@ -67,7 +67,7 @@
             "buttonText": {
               "type":"string",
               "required": false,
-              "default": "",
+              "default": "Show feedback",
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
@@ -96,21 +96,31 @@
         "title": {
           "type":"string",
           "required":false,
-          "default": "",
+          "default": "Feedback",
           "title": "Feedback Title",
           "inputType": "Text",
           "validators": [],
-          "help": "Optional Title",
+          "help": "This is the title for the entire feedback popup.",
           "translatable": true
         },
-        "titleReduced": {
+        "answerTitle": {
           "type":"string",
           "required":false,
-          "default": "",
-          "title": "Feedback Title - Reduced Text",
+          "default": "Answer",
+          "title": "Answer Title",
           "inputType": "Text",
           "validators": [],
-          "help": "Optional Title",
+          "help": "This is the title for the answer text.",
+          "translatable": true
+        },
+        "userTitle": {
+          "type":"string",
+          "required":false,
+          "default": "Your Answer",
+          "title": "User Answer Title",
+          "inputType": "Text",
+          "validators": [],
+          "help": "This is the title for the learners answer.",
           "translatable": true
         },
         "body": {
@@ -120,15 +130,7 @@
           "title": "Feedback Body Text",
           "inputType": "Text",
           "validators": [],
-          "translatable": true
-        },
-        "bodyReduced": {
-          "type":"string",
-          "required":false,
-          "default": "",
-          "title": "Feedback Body Text - Reduced Text",
-          "inputType": "Text",
-          "validators": [],
+          "help": "This is the correct answer text.",
           "translatable": true
         },
         "_audio": {
@@ -141,8 +143,7 @@
               "default": "",
               "title": "Audio",
               "inputType": "Asset:audio",
-              "validators": [],
-              "help": "Feedback audio"
+              "validators": []
             }
           }
         }
