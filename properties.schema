@@ -29,6 +29,15 @@
       "validators": [],
       "translatable": true
     },
+    "_showUserAnswer": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Show User Answer",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Select 'true' to allow the user to view their answer with the correct answer"
+    },
     "_buttons": {
       "type":"object",
       "title": "Buttons",
