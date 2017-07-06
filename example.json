@@ -35,5 +35,5 @@
 // Accessibility supported courses require ARIA instruction - apply to _globals in course.json
 
 "_textEntry": {
-    "ariaRegion": "This component contains a text entry box. Type text in to the box, then select the submit button."
+    "ariaRegion": "This question requires you to input your answer in the textbox provided. When you have done so, select the submit button below."
 }
