@@ -41,12 +41,12 @@
     },
     "_showUserAnswer": {
       "type":"boolean",
-      "required":false,
+      "required": false,
       "default": true,
       "title": "Show User Answer",
-      "inputType": {"type": "Boolean", "options": [true, false]},
+      "inputType": "Checkbox",
       "validators": [],
-      "help": "Select 'true' to allow the user to view their answer with the correct answer"
+      "help": "Controls whether the user can view their answer with the correct answer."
     },
     "_buttons": {
       "type":"object",
@@ -59,12 +59,12 @@
           "properties":{
             "buttonText": {
               "type":"string",
-              "required": false,
+              "required": true,
               "default": "Submit",
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Button label text for the submit button",
+              "help": "Button label text for the submit button.",
               "translatable": true
             },
             "ariaLabel": {
@@ -74,7 +74,7 @@
               "title": "",
               "inputType": "Text",
               "validators": [],
-              "help": "Aria label for the submit button",
+              "help": "Aria label for the submit button.",
               "translatable": true
             }
           }
@@ -85,12 +85,12 @@
           "properties":{
             "buttonText": {
               "type":"string",
-              "required": false,
+              "required": true,
               "default": "Show feedback",
               "title": "",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Button label text to show feedback",
+              "help": "Button label text to show feedback.",
               "translatable": true
             },
             "ariaLabel": {
@@ -100,7 +100,7 @@
               "title": "",
               "inputType": "Text",
               "validators": [],
-              "help": "Aria label for the show feedback button",
+              "help": "Aria label for the show feedback button.",
               "translatable": true
             }
           }
@@ -109,12 +109,12 @@
     },
     "_feedback": {
       "type":"object",
-      "required":true,
+      "required": true,
       "title": "Feedback",
       "properties":{
         "title": {
           "type":"string",
-          "required":false,
+          "required": false,
           "default": "Feedback",
           "title": "Feedback Title",
           "inputType": "Text",
@@ -124,7 +124,7 @@
         },
         "answerTitle": {
           "type":"string",
-          "required":false,
+          "required": false,
           "default": "Answer",
           "title": "Answer Title",
           "inputType": "Text",
@@ -134,7 +134,7 @@
         },
         "userTitle": {
           "type":"string",
-          "required":false,
+          "required": false,
           "default": "Your Answer",
           "title": "User Answer Title",
           "inputType": "Text",
@@ -144,7 +144,7 @@
         },
         "body": {
           "type":"string",
-          "required":false,
+          "required": false,
           "default": "",
           "title": "Feedback Body Text",
           "inputType": "Text",
