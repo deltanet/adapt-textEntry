@@ -3,7 +3,7 @@
 A very simple text entry component.
 
 ----------------------------
-**Version number:**  3.0.5     
+**Version number:**  3.0.6     
 **Framework versions supported:**  2.0.3     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  
