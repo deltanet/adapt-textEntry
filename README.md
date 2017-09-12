@@ -34,7 +34,7 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 >>**buttonText** (string): Sets the text to be displayed in the Feedback button.    
 
->>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute. 
+>>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.
 
 ## Accessibility
 Several elements of **Toolbox** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **Toolbox**. These labels are not visible elements. They are utilized by assistive technology such as screen readers.   
@@ -44,7 +44,7 @@ Several elements of **Toolbox** have been assigned a label using the [aria-label
 No known limitations.  
 
 ----------------------------
-**Version number:**  3.0.6     
+**Version number:**  3.0.7     
 **Framework versions supported:**  2.0.3     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  
