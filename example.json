@@ -34,6 +34,6 @@
 
 // Accessibility supported courses require ARIA instruction - apply to _globals in course.json
 
-"_textEntry": {
+"_textEntry-audio": {
     "ariaRegion": "This question requires you to input your answer in the textbox provided. When you have done so, select the submit button below."
 }
