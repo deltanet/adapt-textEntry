@@ -147,7 +147,7 @@
           "required": false,
           "default": "",
           "title": "Feedback Body Text",
-          "inputType": "Text",
+          "inputType": "TextArea",
           "validators": [],
           "help": "This is the correct answer text.",
           "translatable": true
