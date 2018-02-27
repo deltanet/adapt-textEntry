@@ -1,6 +1,6 @@
 {
   "name": "adapt-textEntry-audio",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "framework": "^2.0.3",
   "homepage": "https://github.com/deltanet/adapt-textEntry-audio",
   "issues": "https://github.com/deltanet/adapt-textEntry-audio/issues",
@@ -8,9 +8,6 @@
   "main": "/js/adapt-textEntry-audio.js",
   "displayName" : "Text Entry Audio",
   "component" : "textEntry-audio",
-  "assetFields" : [
-    "_feedback._audio.src"
-  ],
   "keywords": [
     "adapt-plugin",
     "adapt-component"

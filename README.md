@@ -37,14 +37,14 @@ The attributes listed below are used in *components.json* to configure **Text En
 >>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.
 
 ## Accessibility
-Several elements of **Toolbox** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **Toolbox**. These labels are not visible elements. They are utilized by assistive technology such as screen readers.   
+Several elements of **Text Entry** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **Text Entry**. These labels are not visible elements. They are utilized by assistive technology such as screen readers.   
 
 ## Limitations
 
 No known limitations.  
 
 ----------------------------
-**Version number:**  3.0.7     
+**Version number:**  3.0.8     
 **Framework versions supported:**  2.0.3     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  
