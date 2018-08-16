@@ -44,7 +44,7 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  3.0.8     
+**Version number:**  3.0.9     
 **Framework versions supported:**  2.0.3     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  
