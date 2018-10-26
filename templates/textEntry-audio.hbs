@@ -60,8 +60,8 @@
           </div>
         </div>
         <div class="textEntry-popup-buttons">
-          <button class="textEntry-popup-close" role="button" aria-label="{{_buttons._closeFeedback.ariaLabel}}">
-            {{_buttons._closeFeedback.buttonText}}
+          <button class="textEntry-popup-close" role="button" aria-label="{{#if _buttons._closeFeedback.ariaLabel}}{{_buttons._closeFeedback.ariaLabel}}{{else}}{{_globals._accessibility._ariaLabels.closePopup}}{{/if}}">
+            {{#if _buttons._closeFeedback.buttonText}}{{{_buttons._closeFeedback.buttonText}}}{{else}}{{{_globals._accessibility._ariaLabels.closePopup}}}{{/if}}
           </button>
         </div>
       </div>
