@@ -104,6 +104,32 @@
               "translatable": true
             }
           }
+        },
+        "_closeFeedback": {
+          "type": "object",
+          "title": "Close Feedback",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": true,
+              "default": "Close",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text to close feedback.",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the close feedback button.",
+              "translatable": true
+            }
+          }
         }
       }
     },

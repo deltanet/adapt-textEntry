@@ -1,67 +1,168 @@
 .textEntry-audio-component {
 
-    .textEntry-audio-input {
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .textEntry-audio-input {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .buttons {
-      text-align: center;
-      .button {
-        width: auto;
-        float: none;
-      }
-      margin-bottom: 0;
+  .buttons {
+    text-align: center;
+    .button {
+      width: auto;
+      float: none;
     }
+    margin-bottom: 0;
+  }
 
-    .textEntry-audio-item-textbox {
-        border: 1px solid @item-color;
-        display: block;
-        margin: 0;
-        padding: 1%;
-        resize: none;
-        width: 98%;
-    }
+  .textEntry-audio-item-textbox {
+    border: 1px solid @item-color;
+    display: block;
+    margin: 0;
+    padding: 1%;
+    resize: none;
+    width: 98%;
+  }
 
-    .textEntry-audio-button {
-        margin-top: @component-padding;
-    }
-
+  .textEntry-audio-button {
+    margin-top: @component-padding;
+  }
 }
 
-.notify {
-
-    .textEntry-audio-user-title {
-        margin-bottom: @component-padding;
-        text-align: left;
-        font-weight: @font-weight-bold;
-        .dir-rtl & {
-            text-align: right;
-        }
-    }
-
-    .textEntry-audio-user-answer {
-        margin-bottom: @notify-padding;
-        text-align: left;
-        .dir-rtl & {
-            text-align: right;
-        }
-    }
-
-    .textEntry-audio-feedback-title {
-        margin-bottom: @component-padding;
-        text-align: left;
-        font-weight: @font-weight-bold;
-        .dir-rtl & {
-            text-align: right;
-        }
-    }
-
-    .textEntry-audio-feedback-body {
-        text-align: left;
-        .dir-rtl & {
-            text-align: right;
-        }
-    }
-
+.textEntry-popup-user-title {
+  margin-bottom: @component-padding;
+  text-align: left;
+  font-weight: @font-weight-bold;
+  .dir-rtl & {
+    text-align: right;
+  }
 }
+
+.textEntry-popup-user-answer {
+  margin-bottom: @notify-padding;
+  text-align: left;
+  .dir-rtl & {
+    text-align: right;
+  }
+}
+
+.textEntry-popup-feedback-title {
+  margin-bottom: @component-padding;
+  text-align: left;
+  font-weight: @font-weight-bold;
+  .dir-rtl & {
+    text-align: right;
+  }
+}
+
+.textEntry-popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  z-index: 550;
+  background-color: @notify-color;
+  color: @notify-text-color;
+  left: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  &.large {
+    display: block;
+    top: 50%;
+  }
+
+  &.small {
+    display: block;
+    height: 100%;
+    top: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media all and (min-width: @device-width-medium) {
+    max-width: @device-width-medium;
+    left: 50%;
+    margin-left: -(@device-width-medium / 2);
+    border-radius: 8px;
+  }
+}
+
+.textEntry-popup-inner {
+  position: relative;
+  margin: auto;
+  padding: @notify-padding;
+  padding-bottom: @notify-padding - @button-padding-bottom;
+}
+
+.textEntry-popup-content {
+  .ie8 & {
+    max-width: @ie8-max-width;
+    margin:0 auto;
+  }
+}
+
+.textEntry-popup-content-inner {
+  position:relative;
+  padding-left: 0px;
+
+  .dir-rtl & {
+    padding-left: inherit;
+    padding-right: 0px;
+  }
+
+  @media all and (max-width:(@device-width-medium - 1px)) {
+    padding-left: 0px;
+
+    .dir-rtl & {
+      padding-left: inherit;
+      padding-right: 0px;
+    }
+   }
+  }
+
+  .textEntry-popup-title {
+    margin-bottom: @notify-title-padding-bottom;
+    .item-title;
+    text-align: center;
+    font-size: @component-title-font-size;
+  }
+
+  .textEntry-popup-body {
+    padding-bottom: @notify-padding-bottom;
+    font-size: @body-text-font-size;
+    float: left;
+    text-align: left;
+    .dir-rtl & {
+      float: right;
+      text-align: right;
+    }
+    width: 100%;
+    overflow: hidden;
+
+    @media (max-width: @device-width-medium) {
+      padding-bottom: (@notify-padding-bottom / 3);
+    }
+  }
+
+  .textEntry-popup-buttons {
+    text-align: center;
+    clear: both;
+  }
+
+  .textEntry-popup-close {
+    background-color: @notify-button-color;
+    color: @notify-button-text-color;
+    padding: @button-padding-top @button-padding-right+10 @button-padding-bottom @button-padding-left+10;
+    margin-bottom: @button-padding-bottom;
+    text-decoration: none;
+    display:inline-block;
+    border: none;
+    min-width: 100px;
+    .transition-all-colors;
+    .button-text;
+    .no-touch &:hover {
+      background-color: @notify-button-color-hover;
+      color: @notify-button-text-color-hover;
+    }
+  }

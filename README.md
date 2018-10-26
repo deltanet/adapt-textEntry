@@ -22,7 +22,7 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 **placeholder** (string): This text appears in the text entry box before the user interacts with it.  
 
-**_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, and **_showFeedback**.  
+**_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, **_showFeedback**, and **_closeFeedback**.  
 
 >**_submit** (object):  This `_submit` attributes group stores the properties for the Submit button. It contains values for **buttonText**, and **ariaLabel**.  
 
@@ -34,6 +34,12 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 >>**buttonText** (string): Sets the text to be displayed in the Feedback button.    
 
+>>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
+
+>**_closeFeedback** (object):  This `_closeFeedback` attributes group stores the properties for the Close Feedback button. It contains values for **buttonText**, and **ariaLabel**.  
+
+>>**buttonText** (string): Sets the text to be displayed in the Close Feedback button.    
+
 >>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.
 
 ## Accessibility
@@ -44,7 +50,7 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  3.0.9     
+**Version number:**  3.1.0     
 **Framework versions supported:**  2.0.3     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  

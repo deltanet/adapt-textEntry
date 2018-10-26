@@ -9,5 +9,62 @@
 	        {{_buttons._submit.buttonText}}
 	    </button>
     </div>
+    <div class="textEntry-popup" role="dialog" aria-label="">
+      <div class="textEntry-popup-inner">
+        <div class="textEntry-popup-content">
+          <div class="textEntry-popup-content-inner">
+            {{#if _showUserAnswer}}
+              {{#if _feedback.title}}
+              <div class="textEntry-popup-title">
+                <div class="textEntry-popup-title-inner h5" tabindex="0" role="heading" aria-level="1">
+                  {{{compile _feedback.title}}}
+                </div>
+              </div>
+              {{/if}}
+              {{#if _feedback.userTitle}}
+              <div class="textEntry-popup-user-title">
+                {{{compile _feedback.userTitle}}}
+              </div>
+              {{/if}}
+              <div class="textEntry-popup-user-answer">
+                {{{compile userAnswer}}}
+              </div>
+              {{#if _feedback.answerTitle}}
+              <div class="textEntry-popup-feedback-title">
+                {{{compile _feedback.answerTitle}}}
+              </div>
+              {{/if}}
+              {{#if _feedback.body}}
+              <div class="textEntry-popup-body">
+                <div class="textEntry-popup-body-inner">
+                  {{{compile_a11y_text _feedback.body}}}
+                </div>
+              </div>
+              {{/if}}
+            {{else}}
+              {{#if _feedback.answerTitle}}
+              <div class="textEntry-popup-title">
+                <div class="textEntry-popup-title-inner h5" tabindex="0" role="heading" aria-level="1">
+                  {{{compile _feedback.answerTitle}}}
+                </div>
+              </div>
+              {{/if}}
+              {{#if _feedback.body}}
+              <div class="textEntry-popup-body">
+                <div class="textEntry-popup-body-inner">
+                  {{{compile_a11y_text _feedback.body}}}
+                </div>
+              </div>
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="textEntry-popup-buttons">
+          <button class="textEntry-popup-close" role="button" aria-label="{{_buttons._closeFeedback.ariaLabel}}">
+            {{_buttons._closeFeedback.buttonText}}
+          </button>
+        </div>
+      </div>
+    </div>
 	</div>
 </div>
