@@ -155,10 +155,6 @@ define(function(require) {
         }
       },
 
-      onAccessibilityToggle: function() {
-        this.setupEscapeKey();
-      },
-
       onKeyUp: function(event) {
         if (event.which != 27) return;
         event.preventDefault();

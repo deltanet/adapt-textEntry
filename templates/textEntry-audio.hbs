@@ -5,7 +5,7 @@
 		   	<textarea placeholder="{{compile placeholder}}" class="textEntry-audio-item-textbox" cols="2" rows="10"></textarea>
 		</div>
     <div class="buttons">
-	    <button class="textEntry-audio-button button" role="button" aria-label="{{_buttons._submit.ariaLabel}}">
+	    <button class="textEntry-audio-button button" aria-label="{{_buttons._submit.ariaLabel}}">
 	        {{_buttons._submit.buttonText}}
 	    </button>
     </div>
@@ -16,7 +16,7 @@
             {{#if _showUserAnswer}}
               {{#if _feedback.title}}
               <div class="textEntry-popup-title">
-                <div class="textEntry-popup-title-inner h5" tabindex="0" role="heading" aria-level="1">
+                <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
                   {{{compile _feedback.title}}}
                 </div>
               </div>
@@ -44,7 +44,7 @@
             {{else}}
               {{#if _feedback.answerTitle}}
               <div class="textEntry-popup-title">
-                <div class="textEntry-popup-title-inner h5" tabindex="0" role="heading" aria-level="1">
+                <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
                   {{{compile _feedback.answerTitle}}}
                 </div>
               </div>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="textEntry-popup-buttons">
-          <button class="textEntry-popup-close" role="button" aria-label="{{#if _buttons._closeFeedback.ariaLabel}}{{_buttons._closeFeedback.ariaLabel}}{{else}}{{_globals._accessibility._ariaLabels.closePopup}}{{/if}}">
+          <button class="textEntry-popup-close" aria-label="{{#if _buttons._closeFeedback.ariaLabel}}{{_buttons._closeFeedback.ariaLabel}}{{else}}{{_globals._accessibility._ariaLabels.closePopup}}{{/if}}">
             {{#if _buttons._closeFeedback.buttonText}}{{{_buttons._closeFeedback.buttonText}}}{{else}}{{{_globals._accessibility._ariaLabels.closePopup}}}{{/if}}
           </button>
         </div>
