@@ -67,6 +67,7 @@ define([
 
         onPopupClosed: function() {
             this._isPopupOpen = false;
+            this.setCompletionStatus();
         }
 
     });
