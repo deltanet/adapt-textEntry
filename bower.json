@@ -1,7 +1,7 @@
 {
   "name": "adapt-textEntry-audio",
-  "version": "3.1.1",
-  "framework": "^2.0.3",
+  "version": "4.0.0",
+  "framework": ">=4",
   "homepage": "https://github.com/deltanet/adapt-textEntry-audio",
   "issues": "https://github.com/deltanet/adapt-textEntry-audio/issues",
   "description": "A simple text entry component with optional audio",
@@ -12,5 +12,5 @@
     "adapt-plugin",
     "adapt-component"
   ],
-  "license": "GPL-3.0"
+  "license": "GPLv3"
 }

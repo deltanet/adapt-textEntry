@@ -1,0 +1,52 @@
+<div class="textEntry-audio-popup-inner clearfix">
+{{#if _showUserAnswer}}
+  {{#if _feedback.title}}
+  <div id="notify-heading" class="notify-popup-title">
+    <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
+      {{{compile _feedback.title}}}
+    </div>
+  </div>
+  {{/if}}
+  {{#if _feedback.userTitle}}
+  <div class="textEntry-popup-user-title">
+    {{{compile _feedback.userTitle}}}
+  </div>
+  {{/if}}
+  <div class="textEntry-popup-user-answer">
+    {{{compile userAnswer}}}
+  </div>
+  {{#if _feedback.answerTitle}}
+  <div class="textEntry-popup-feedback-title">
+    {{{compile _feedback.answerTitle}}}
+  </div>
+  {{/if}}
+  {{#if _feedback.body}}
+  <div class="textEntry-popup-body">
+    <div class="textEntry-popup-body-inner">
+      {{{compile _feedback.body}}}
+    </div>
+  </div>
+  {{/if}}
+{{else}}
+  {{#if _feedback.answerTitle}}
+  <div id="notify-heading" class="notify-popup-title">
+    <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
+      {{{compile _feedback.answerTitle}}}
+    </div>
+  </div>
+  {{/if}}
+  {{#if _feedback.body}}
+  <div class="textEntry-popup-body">
+    <div class="textEntry-popup-body-inner">
+      {{{compile _feedback.body}}}
+    </div>
+  </div>
+  {{/if}}
+{{/if}}
+</div>
+<div class="notify-popup-buttons">
+  <button class="notify-popup-button textEntry-close-button" aria-label="{{#if _buttons._closeFeedback.ariaLabel}}{{_buttons._closeFeedback.ariaLabel}}{{else}}{{_globals._accessibility._ariaLabels.closePopup}}{{/if}}">
+    {{#if _buttons._closeFeedback.buttonText}}{{{_buttons._closeFeedback.buttonText}}}{{else}}{{{_globals._accessibility._ariaLabels.closePopup}}}{{/if}}
+  </button>
+</div>
+{{a11y_wrap_focus}}
