@@ -30,6 +30,45 @@
   		"help": "This is the instruction text",
       "translatable": true
 		},
+    "_recordInteraction": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "title": "Record interaction",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "If disabled, recording the user's answer(s) to this question to cmi.interactions on the LMS will be disabled for this component only."
+    },
+    "_canShowFeedback": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Display Feedback",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_showUserAnswer": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "title": "Show User Answer",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Controls whether the user can view their answer with the correct answer."
+    },
+    "_setCompletionOn": {
+      "type": "string",
+      "required": false,
+      "default": "submitted",
+      "title": "Set completion on:",
+      "enum": ["submitted", "inview"],
+      "inputType": {
+        "type": "Select",
+        "options": ["submitted", "inview"]
+      },
+      "validators": [],
+      "help": "Whether completion is based on the learner having viewed all the accordion items - or just having viewed the component"
+    },
     "placeholder": {
       "type": "string",
       "required": false,
@@ -39,26 +78,17 @@
       "validators": [],
       "translatable": true
     },
-    "_showUserAnswer": {
-      "type":"boolean",
-      "required": false,
-      "default": true,
-      "title": "Show User Answer",
-      "inputType": "Checkbox",
-      "validators": [],
-      "help": "Controls whether the user can view their answer with the correct answer."
-    },
     "_buttons": {
       "type":"object",
       "title": "Buttons",
       "required": false,
       "properties":{
         "_submit": {
-          "type":"object",
+          "type": "object",
           "title": "Submit",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": true,
               "default": "Submit",
               "title": "",
@@ -68,7 +98,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -79,12 +109,38 @@
             }
           }
         },
-        "_showFeedback": {
-          "type":"object",
-          "title": "Show Feedback",
-          "properties":{
+        "_reset": {
+          "type": "object",
+          "title": "Reset",
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
+              "required": true,
+              "default": "Reset",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text for the reset button.",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the reset button.",
+              "translatable": true
+            }
+          }
+        },
+        "_showFeedback": {
+          "type": "object",
+          "title": "Show Feedback",
+          "properties": {
+            "buttonText": {
+              "type": "string",
               "required": true,
               "default": "Show feedback",
               "title": "",
@@ -94,7 +150,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type":"string",
+              "type": "string",
               "required": false,
               "default": "",
               "title": "",
@@ -108,9 +164,9 @@
         "_closeFeedback": {
           "type": "object",
           "title": "Close Feedback",
-          "properties":{
+          "properties": {
             "buttonText": {
-              "type":"string",
+              "type": "string",
               "required": true,
               "default": "Close",
               "title": "",
@@ -134,12 +190,12 @@
       }
     },
     "_feedback": {
-      "type":"object",
+      "type": "object",
       "required": true,
       "title": "Feedback",
-      "properties":{
+      "properties": {
         "title": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "Feedback",
           "title": "Feedback Title",
@@ -149,7 +205,7 @@
           "translatable": true
         },
         "answerTitle": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "Answer",
           "title": "Answer Title",
@@ -159,7 +215,7 @@
           "translatable": true
         },
         "userTitle": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "Your Answer",
           "title": "User Answer Title",
@@ -169,7 +225,7 @@
           "translatable": true
         },
         "body": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Feedback Body Text",

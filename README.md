@@ -20,11 +20,25 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 **instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.  
 
+**_recordInteraction** (boolean) Determines whether or not the learner's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).  
+
+**_canShowFeedback** (boolean): Setting this to `false` disables feedback, so it is not shown to the user. The default is `true`.  
+
+**_showUserAnswer** (boolean): Setting this to `true` will show the user answer in the feedback popup. The default is `true`.  
+
+**_setCompletionOn** (string): Determines when the component registers as complete. Acceptable values are `"submitted"` and `"inview"`.
+
 **placeholder** (string): This text appears in the text entry box before the user interacts with it.  
 
-**_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, **_showFeedback**, and **_closeFeedback**.  
+**_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, **_reset**, **_showFeedback**, and **_closeFeedback**.  
 
 >**_submit** (object):  This `_submit` attributes group stores the properties for the Submit button. It contains values for **buttonText**, and **ariaLabel**.  
+
+>>**buttonText** (string): Sets the text to be displayed in the Submit button.    
+
+>>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
+
+>**_reset** (object):  This `_reset` attributes group stores the properties for the Reset button. It contains values for **buttonText**, and **ariaLabel**.  
 
 >>**buttonText** (string): Sets the text to be displayed in the Submit button.    
 
@@ -40,7 +54,21 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 >>**buttonText** (string): Sets the text to be displayed in the Close Feedback button.    
 
->>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.
+>>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
+
+**_feedback** (object):  This `_feedback` attributes group stores the properties for the feedback. It contains values for **title**, **answerTitle**, **userTitle**, **body** and **_audio**.  
+
+>**title** (string): Sets the title for the feedback.    
+
+>**answerTitle** (string): Sets the title for the correct answer.    
+
+>**userTitle** (string): Sets the title for the user answer.    
+
+>**body** (string): Sets the text for the correct answer.    
+
+>**_audio** (object):  This `_audio` attributes group stores the properties for the audio. It contains values for **src**.  
+
+>>**src** (string): File name (including path) of the audio for the item. Path should be relative to the *src* folder.  
 
 ## Accessibility
 Several elements of **Text Entry** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **Text Entry**. These labels are not visible elements. They are utilized by assistive technology such as screen readers.   
@@ -50,8 +78,8 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.0.0     
-**Framework versions supported:**  4.0.0     
+**Version number:**  4.1.0     
+**Framework versions supported:**  4+     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  
 **RTL support:** yes     

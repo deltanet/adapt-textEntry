@@ -7,8 +7,9 @@ define([
     var TextEntryAudioView = ComponentView.extend({
 
         events: {
-            'click .textEntry-audio-button': 'onBtnClicked',
-            'click .textEntry-popup-close': 'closePopup'
+            'click .buttons-action': 'onBtnClicked',
+            'click .buttons-action-fullwidth': 'onBtnClicked',
+            'click .buttons-feedback': 'openPopup'
         },
 
         initialize: function() {
@@ -22,23 +23,50 @@ define([
         },
 
         postRender: function() {
+            this.restoreUserAnswers();
             this.setReadyStatus();
+
+            if (this.model.get('_setCompletionOn') === 'inview') {
+                this.setupInviewCompletion();
+            }
         },
 
         onBtnClicked: function(event) {
           if (event) event.preventDefault();
 
-          // Store user answer
-          this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
+          if (this.$('.textEntry-audio-item-textbox').val() == "") return;
 
-          this.model.set("userAnswer", this.userAnswer);
+          if (this.model.get('_isSubmitted')) {
 
-          this.$('.textEntry-popup').find('.textEntry-popup-user-answer').html(this.userAnswer);
+            $(event.currentTarget).html(this.model.get("_buttons")._submit.buttonText);
+            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._submit.ariaLabel);
 
-          $(event.currentTarget).html(this.model.get("_buttons")._showFeedback.buttonText);
-          $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._showFeedback.ariaLabel);
+            this.resetUserAnswer();
 
+          } else {
+
+            this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
+            this.model.set("userAnswer", this.userAnswer);
+
+            this.initFeedback();
+
+            $(event.currentTarget).html(this.model.get("_buttons")._reset.buttonText);
+            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
+
+            this.model.set('_isSubmitted', true);
+          }
+
+          if (!this.model.get('_recordInteraction')) return;
+          Adapt.trigger('questionView:recordInteraction', this);
+      },
+
+      initFeedback: function() {
+        if (this.model.get('_canShowFeedback')) {
+          this.$('.buttons-feedback').attr('disabled', false);
           this.openPopup();
+        } else {
+          this.setCompletionStatus();
+        }
       },
 
       openPopup: function() {
@@ -68,8 +96,62 @@ define([
         onPopupClosed: function() {
             this._isPopupOpen = false;
             this.setCompletionStatus();
-        }
+        },
 
+        restoreUserAnswers: function() {
+            if (!this.model.get('userAnswer')) return;
+            if (!this.model.get('_isSubmitted')) return;
+
+            this.userAnswer = this.model.get('userAnswer');
+
+            this.$('.textEntry-audio-item-textbox').val(this.userAnswer);
+
+            this.model.set('_isSubmitted', true);
+
+            if (this.model.get('_canShowFeedback')) {
+              this.$('.buttons-action').html(this.model.get("_buttons")._reset.buttonText);
+              this.$('.buttons-action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
+
+              this.$('.buttons-feedback').attr('disabled', false);
+            } else {
+              this.$('.buttons-action-fullwidth').html(this.model.get("_buttons")._reset.buttonText);
+              this.$('.buttons-action-fullwidth').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
+            }
+        },
+
+        resetUserAnswer: function() {
+          this.model.set('_isSubmitted', false);
+          this.model.set('userAnswer', '');
+
+          this.$('.textEntry-audio-item-textbox').val('');
+
+          this.$('.buttons-feedback').attr('disabled', true);
+        },
+
+        isCorrect: function() {
+            return null;
+        },
+
+        // Time elapsed between the time the interaction was made available to the learner for response and the time of the first response
+        getLatency:function() {
+            return null;
+        },
+
+        /**
+        * used by adapt-contrib-spoor to get the user's answers in the format required by the cmi.interactions.n.student_response data field
+        * returns the user's answers as a string in the format 'answer1[,]answer2[,]answer3'
+        * the use of [,] as an answer delimiter is from the SCORM 2004 specification for the fill-in interaction type
+        */
+        getResponse: function() {
+            return this.model.get('userAnswer');
+        },
+
+        /**
+        * used by adapt-contrib-spoor to get the type of this question in the format required by the cmi.interactions.n.type data field
+        */
+        getResponseType: function() {
+            return 'fill-in';
+        }
     });
 
     return TextEntryAudioView;

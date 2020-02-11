@@ -4,10 +4,15 @@
   	<div class="textEntry-audio-input">
       <textarea placeholder="{{compile placeholder}}" class="textEntry-audio-item-textbox" cols="2" rows="10"></textarea>
   	</div>
-    <div class="buttons">
-      <button class="textEntry-audio-button button" aria-label="{{_buttons._submit.ariaLabel}}">
-        {{_buttons._submit.buttonText}}
-      </button>
+  </div>
+  <div class="buttons">
+    <div class="buttons-inner">
+      <div class="buttons-cluster clearfix">
+        <button class="{{#if _canShowFeedback}}buttons-action{{else}}buttons-action-fullwidth{{/if}}" aria-label="{{_buttons._submit.ariaLabel}}">{{_buttons._submit.buttonText}}</button>
+        {{#if _canShowFeedback}}
+        <button class="buttons-feedback" aria-label="{{_buttons._showFeedback.ariaLabel}}" disabled="true">{{_buttons._showFeedback.buttonText}}</button>
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>
