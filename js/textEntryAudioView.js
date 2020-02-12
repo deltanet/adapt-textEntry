@@ -56,6 +56,8 @@ define([
             this.model.set('_isSubmitted', true);
           }
 
+          Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
+
           if (!this.model.get('_recordInteraction')) return;
           Adapt.trigger('questionView:recordInteraction', this);
       },
@@ -99,12 +101,13 @@ define([
         },
 
         restoreUserAnswers: function() {
-            if (!this.model.get('userAnswer')) return;
-            if (!this.model.get('_isSubmitted')) return;
+            var storedAnswer = Adapt.offlineStorage.get(this.model.get('_id'));
 
-            this.userAnswer = this.model.get('userAnswer');
+            if (!storedAnswer) return;
 
-            this.$('.textEntry-audio-item-textbox').val(this.userAnswer);
+            this.model.set('userAnswer', storedAnswer);
+
+            this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer'));
 
             this.model.set('_isSubmitted', true);
 
