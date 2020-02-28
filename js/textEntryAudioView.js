@@ -9,7 +9,8 @@ define([
         events: {
             'click .buttons-action': 'onBtnClicked',
             'click .buttons-action-fullwidth': 'onBtnClicked',
-            'click .buttons-feedback': 'openPopup'
+            'click .buttons-feedback': 'openPopup',
+            'keyup .textEntry-audio-item-textbox': 'onInputChanged'
         },
 
         initialize: function() {
@@ -29,6 +30,8 @@ define([
             if (this.model.get('_setCompletionOn') === 'inview') {
                 this.setupInviewCompletion();
             }
+
+            this.updateCounter();
         },
 
         onBtnClicked: function(event) {
@@ -120,6 +123,8 @@ define([
               this.$('.buttons-action-fullwidth').html(this.model.get("_buttons")._reset.buttonText);
               this.$('.buttons-action-fullwidth').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
             }
+
+            this.updateCounter();
         },
 
         resetUserAnswer: function() {
@@ -129,6 +134,27 @@ define([
           this.$('.textEntry-audio-item-textbox').val('');
 
           this.$('.buttons-feedback').attr('disabled', true);
+
+          this.updateCounter();
+        },
+
+        onInputChanged: function(event) {
+          if (event) event.preventDefault();
+
+          this.updateCounter();
+        },
+
+        updateCounter: function() {
+          if (!this.model.get('_characterLimit')._isEnabled) return;
+
+          var length = this.$('.textEntry-audio-item-textbox').val().length;
+
+          var max = this.model.get('_characterLimit')._max;
+          var text = this.model.get('_characterLimit').text;
+
+          var output = text+" "+(max - length);
+
+          this.$('.textEntry-audio-counter').html(output);
         },
 
         isCorrect: function() {

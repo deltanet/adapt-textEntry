@@ -30,6 +30,14 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 **placeholder** (string): This text appears in the text entry box before the user interacts with it.  
 
+**_characterLimit** (object):  This `_characterLimit` attributes group stores the properties for the maximum character length. It contains values for **_isEnabled**, **_max**, and **text**.  
+
+>**_isEnabled** (boolean): Setting this to `true` will set the maximum character length specified. The default is `false`.  
+
+>**_max** (number): This sets the character limit for the text entry box.  
+
+>**text** (string): This defines the text to prefix the number of characters remaining.  
+
 **_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, **_reset**, **_showFeedback**, and **_closeFeedback**.  
 
 >**_submit** (object):  This `_submit` attributes group stores the properties for the Submit button. It contains values for **buttonText**, and **ariaLabel**.  
@@ -78,7 +86,7 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.1.1     
+**Version number:**  4.2.0     
 **Framework versions supported:**  4+     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  

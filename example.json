@@ -14,6 +14,11 @@
   "body":"Body text",
   "instruction":"Instruction text",
   "placeholder": "Enter your thoughts here",
+  "_characterLimit": {
+    "_isEnabled": true,
+    "_max": 255,
+    "text": "Characters remaining:"
+  },
   "_buttons": {
     "_submit": {
       "buttonText": "Submit",

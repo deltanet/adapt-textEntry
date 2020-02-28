@@ -2,8 +2,11 @@
   {{> component this}}
   <div class="textEntry-audio-widget component-widget">
   	<div class="textEntry-audio-input">
-      <textarea placeholder="{{compile placeholder}}" class="textEntry-audio-item-textbox" cols="2" rows="10"></textarea>
+      <textarea placeholder="{{compile placeholder}}" class="textEntry-audio-item-textbox" cols="2" rows="10"{{#if _characterLimit._isEnabled}} maxlength={{_characterLimit._max}}{{/if}}></textarea>
   	</div>
+    {{#if _characterLimit._isEnabled}}
+      <div class="textEntry-audio-counter"></div>
+    {{/if}}
   </div>
   <div class="buttons">
     <div class="buttons-inner">
