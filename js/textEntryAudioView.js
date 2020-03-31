@@ -145,6 +145,7 @@ define([
         },
 
         updateCounter: function() {
+          if (!this.model.get('_characterLimit')) return;
           if (!this.model.get('_characterLimit')._isEnabled) return;
 
           var length = this.$('.textEntry-audio-item-textbox').val().length;
