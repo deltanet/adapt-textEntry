@@ -85,13 +85,13 @@ define([
               model: this.model
           });
 
-          Adapt.trigger('notify:popup', {
+          Adapt.notify.popup({
               _view: this.popupView,
               _isCancellable: true,
               _showCloseButton: false,
               _closeOnBackdrop: true,
               _classes: 'textEntry-audio-popup'
-          })
+          });
 
           this.listenToOnce(Adapt, {
               'popup:closed': this.onPopupClosed

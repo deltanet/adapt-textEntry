@@ -1,8 +1,9 @@
-.textEntry-audio-component {
+.textentry-audio {
 
   .textEntry-audio-input {
     margin-left: auto;
     margin-right: auto;
+    padding: 0 0 @item-padding 0;
   }
 
   .textEntry-audio-item-textbox {
@@ -16,17 +17,17 @@
   }
 
   .textEntry-audio-counter {
-    color: @foreground-color;
-    background-color: @background-color;
-    padding: @component-padding;
-    font-weight: @font-weight-medium;
+    color: @item-color-inverted;
+    background-color: @item-color;
+    padding: @notify-body-margin;
+    font-weight: @font-weight-regular;
   }
 }
 
 .textEntry-audio-popup {
 
   .textEntry-popup-user-title {
-    margin-bottom: @component-padding;
+    margin-bottom: @notify-title-margin;
     text-align: left;
     font-weight: @font-weight-bold;
     .dir-rtl & {
@@ -35,7 +36,7 @@
   }
 
   .textEntry-popup-user-answer {
-    margin-bottom: @notify-padding;
+    margin-bottom: @notify-body-margin;
     text-align: left;
     .dir-rtl & {
       text-align: right;
@@ -43,7 +44,7 @@
   }
 
   .textEntry-popup-feedback-title {
-    margin-bottom: @component-padding;
+    margin-bottom: @notify-title-margin;
     text-align: left;
     font-weight: @font-weight-bold;
     .dir-rtl & {
@@ -52,8 +53,8 @@
   }
 
   .textEntry-popup-body {
-    padding-bottom: @notify-padding-bottom;
-    font-size: @body-text-font-size;
+    padding-bottom: @notify-body-margin;
+    font-size: @body-size;
     float: left;
     text-align: left;
     .dir-rtl & {
@@ -64,7 +65,7 @@
     overflow: hidden;
 
     @media (max-width: @device-width-medium) {
-      padding-bottom: (@notify-padding-bottom / 3);
+      padding-bottom: (@notify-body-margin / 3);
     }
   }
 }

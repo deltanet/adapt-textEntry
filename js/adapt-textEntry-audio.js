@@ -4,7 +4,8 @@ define([
 ], function(Adapt, TextEntryAudioView) {
 
     return Adapt.register('textEntry-audio', {
-        view: TextEntryAudioView
+        view: TextEntryAudioView,
+        model: ComponentModel.extend({})
     });
 
 });
