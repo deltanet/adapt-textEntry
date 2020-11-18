@@ -7,9 +7,8 @@ define([
     var TextEntryAudioView = ComponentView.extend({
 
         events: {
-            'click .buttons-action': 'onBtnClicked',
-            'click .buttons-action-fullwidth': 'onBtnClicked',
-            'click .buttons-feedback': 'openPopup',
+            'click .js-btn-action': 'onBtnClicked',
+            'click .js-btn-feedback': 'openPopup',
             'keyup .textEntry-audio-item-textbox': 'onInputChanged'
         },
 
@@ -57,6 +56,8 @@ define([
             $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
 
             this.model.set('_isSubmitted', true);
+
+            this.$('.btn__feedback').removeClass('is-disabled');
           }
 
           Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
@@ -67,7 +68,7 @@ define([
 
       initFeedback: function() {
         if (this.model.get('_canShowFeedback')) {
-          this.$('.buttons-feedback').attr('disabled', false);
+          this.$('.btn__feedback').attr('disabled', false);
           this.openPopup();
         } else {
           this.setCompletionStatus();
@@ -86,21 +87,21 @@ define([
           });
 
           Adapt.notify.popup({
-              _view: this.popupView,
-              _isCancellable: true,
-              _showCloseButton: false,
-              _closeOnBackdrop: true,
-              _classes: 'textEntry-audio-popup'
+            _view: this.popupView,
+            _isCancellable: true,
+            _showCloseButton: false,
+            _closeOnBackdrop: true,
+            _classes: 'textEntry-audio-popup'
           });
 
           this.listenToOnce(Adapt, {
-              'popup:closed': this.onPopupClosed
+            'popup:closed': this.onPopupClosed
           });
         },
 
         onPopupClosed: function() {
-            this._isPopupOpen = false;
-            this.setCompletionStatus();
+          this._isPopupOpen = false;
+          this.setCompletionStatus();
         },
 
         restoreUserAnswers: function() {
@@ -115,14 +116,11 @@ define([
             this.model.set('_isSubmitted', true);
 
             if (this.model.get('_canShowFeedback')) {
-              this.$('.buttons-action').html(this.model.get("_buttons")._reset.buttonText);
-              this.$('.buttons-action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
-
-              this.$('.buttons-feedback').attr('disabled', false);
-            } else {
-              this.$('.buttons-action-fullwidth').html(this.model.get("_buttons")._reset.buttonText);
-              this.$('.buttons-action-fullwidth').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
+              this.$('.btn__feedback').attr('disabled', false).removeClass('is-disabled');
             }
+
+            this.$('.btn__action').html(this.model.get("_buttons")._reset.buttonText);
+            this.$('.btn__action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel).removeClass('is-disabled');
 
             this.updateCounter();
         },
@@ -133,13 +131,17 @@ define([
 
           this.$('.textEntry-audio-item-textbox').val('');
 
-          this.$('.buttons-feedback').attr('disabled', true);
+          this.$('.btn__action').addClass('is-disabled');
+
+          this.$('.btn__feedback').attr('disabled', true).addClass('is-disabled');
 
           this.updateCounter();
         },
 
         onInputChanged: function(event) {
           if (event) event.preventDefault();
+
+          this.$('.btn__action').removeClass('is-disabled');
 
           this.updateCounter();
         },

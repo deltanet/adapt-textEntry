@@ -1,8 +1,8 @@
 <div class="textEntry-audio-popup-inner u-clearfix">
 {{#if _showUserAnswer}}
   {{#if _feedback.title}}
-  <div id="notify-heading" class="notify__title">
-    <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
+  <div id="notify-heading" class="notify__title"{{a11y_attrs_heading 'notify'}}>
+    <div class="notify__title-inner">
       {{{compile _feedback.title}}}
     </div>
   </div>
@@ -29,8 +29,8 @@
   {{/if}}
 {{else}}
   {{#if _feedback.answerTitle}}
-  <div id="notify-heading" class="notify-popup-title">
-    <div class="textEntry-popup-title-inner h5" role="heading" aria-level="1">
+  <div id="notify-heading" class="notify__title" {{a11y_attrs_heading 'notify'}}>
+    <div class="notify__title-inner">
       {{{compile _feedback.answerTitle}}}
     </div>
   </div>
