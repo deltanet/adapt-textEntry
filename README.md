@@ -2,7 +2,7 @@
 
 **Text Entry** is a *presentation component* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).   
 
-This component displays a simple text entry box with no tracking or data saving.
+This component displays a text entry box which captures user input text.
 
 ## Settings Overview
 
@@ -46,12 +46,6 @@ The attributes listed below are used in *components.json* to configure **Text En
 
 >>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
 
->**_reset** (object):  This `_reset` attributes group stores the properties for the Reset button. It contains values for **buttonText**, and **ariaLabel**.  
-
->>**buttonText** (string): Sets the text to be displayed in the Submit button.    
-
->>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
-
 >**_showFeedback** (object):  This `_showFeedback` attributes group stores the properties for the Feedback button. It contains values for **buttonText**, and **ariaLabel**.  
 
 >>**buttonText** (string): Sets the text to be displayed in the Feedback button.    
@@ -86,7 +80,7 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.2.1     
+**Version number:**  4.3.0     
 **Framework versions supported:**  4+     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
 **Accessibility support:** yes  

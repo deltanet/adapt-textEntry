@@ -24,10 +24,6 @@
       "buttonText": "Submit",
       "ariaLabel": "Select here to submit your answer."
     },
-    "_reset": {
-      "buttonText": "Reset",
-      "ariaLabel": "Select here to reset your answer."
-    },
     "_showFeedback": {
       "buttonText": "Show feedback",
       "ariaLabel": "Select here to see the answer."
