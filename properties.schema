@@ -143,32 +143,6 @@
             }
           }
         },
-        "_reset": {
-          "type": "object",
-          "title": "Reset",
-          "properties": {
-            "buttonText": {
-              "type": "string",
-              "required": true,
-              "default": "Reset",
-              "title": "",
-              "inputType": "QuestionButton",
-              "validators": [],
-              "help": "Button label text for the reset button.",
-              "translatable": true
-            },
-            "ariaLabel": {
-              "type": "string",
-              "required": false,
-              "default": "",
-              "title": "",
-              "inputType": "Text",
-              "validators": [],
-              "help": "Aria label for the reset button.",
-              "translatable": true
-            }
-          }
-        },
         "_showFeedback": {
           "type": "object",
           "title": "Show Feedback",

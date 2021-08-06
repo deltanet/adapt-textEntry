@@ -2,7 +2,7 @@
 
 **Text Entry** is a *presentation component* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).   
 
-This component displays a simple text entry box with no tracking or data saving.
+This component displays a text entry box which captures user input text.
 
 ## Settings Overview
 
@@ -41,12 +41,6 @@ The attributes listed below are used in *components.json* to configure **Text En
 **_buttons** (object):  This `_buttons` attributes group stores the properties for the buttons. It contains values for **_submit**, **_reset**, **_showFeedback**, and **_closeFeedback**.  
 
 >**_submit** (object):  This `_submit` attributes group stores the properties for the Submit button. It contains values for **buttonText**, and **ariaLabel**.  
-
->>**buttonText** (string): Sets the text to be displayed in the Submit button.    
-
->>**ariaLabel** (string): This text becomes the button’s `Aria label` attribute.  
-
->**_reset** (object):  This `_reset` attributes group stores the properties for the Reset button. It contains values for **buttonText**, and **ariaLabel**.  
 
 >>**buttonText** (string): Sets the text to be displayed in the Submit button.    
 
