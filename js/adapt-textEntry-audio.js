@@ -1,10 +1,12 @@
 define([
     'core/js/adapt',
-    './textEntryAudioView'
-], function(Adapt, TextEntryAudioView) {
+    './textEntryAudioView',
+    'core/js/models/componentModel'
+], function(Adapt, TextEntryAudioView, ComponentModel) {
 
     return Adapt.register('textEntry-audio', {
-        view: TextEntryAudioView
+        view: TextEntryAudioView,
+        model: ComponentModel.extend({})
     });
 
 });

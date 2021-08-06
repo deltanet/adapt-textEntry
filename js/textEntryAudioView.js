@@ -7,9 +7,8 @@ define([
     var TextEntryAudioView = ComponentView.extend({
 
         events: {
-            'click .buttons-action': 'onBtnClicked',
-            'click .buttons-action-fullwidth': 'onBtnClicked',
-            'click .buttons-feedback': 'openPopup',
+            'click .js-btn-action': 'onBtnClicked',
+            'click .js-btn-feedback': 'openPopup',
             'keyup .textEntry-audio-item-textbox': 'onInputChanged'
         },
 
@@ -39,17 +38,27 @@ define([
 
           if (this.$('.textEntry-audio-item-textbox').val() == "") return;
 
-          this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
-          this.model.set("userAnswer", this.userAnswer);
+          if (this.model.get('_isSubmitted')) {
 
-          this.initFeedback();
+            $(event.currentTarget).html(this.model.get("_buttons")._submit.buttonText);
+            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._submit.ariaLabel);
 
-          this.model.set('_isSubmitted', true);
+            this.resetUserAnswer();
 
-          this.$('.buttons-action').addClass('disabled').attr('disabled', true);
-          this.$('.buttons-action-fullwidth').addClass('disabled').attr('disabled', true);
+          } else {
 
-          this.$('.textEntry-audio-item-textbox').attr('disabled', true);
+            this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
+            this.model.set("userAnswer", this.userAnswer);
+
+            this.initFeedback();
+
+            $(event.currentTarget).html(this.model.get("_buttons")._reset.buttonText);
+            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
+
+            this.model.set('_isSubmitted', true);
+
+            this.$('.btn__feedback').removeClass('is-disabled');
+          }
 
           Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
 
@@ -59,7 +68,7 @@ define([
 
       initFeedback: function() {
         if (this.model.get('_canShowFeedback')) {
-          this.$('.buttons-feedback').attr('disabled', false);
+          this.$('.btn__feedback').attr('disabled', false);
           this.openPopup();
         } else {
           this.setCompletionStatus();
@@ -77,22 +86,22 @@ define([
               model: this.model
           });
 
-          Adapt.trigger('notify:popup', {
-              _view: this.popupView,
-              _isCancellable: true,
-              _showCloseButton: false,
-              _closeOnBackdrop: true,
-              _classes: 'textEntry-audio-popup'
-          })
+          Adapt.notify.popup({
+            _view: this.popupView,
+            _isCancellable: true,
+            _showCloseButton: false,
+            _closeOnBackdrop: true,
+            _classes: 'textEntry-audio-popup'
+          });
 
           this.listenToOnce(Adapt, {
-              'popup:closed': this.onPopupClosed
+            'popup:closed': this.onPopupClosed
           });
         },
 
         onPopupClosed: function() {
-            this._isPopupOpen = false;
-            this.setCompletionStatus();
+          this._isPopupOpen = false;
+          this.setCompletionStatus();
         },
 
         restoreUserAnswers: function() {
@@ -106,20 +115,33 @@ define([
 
             this.model.set('_isSubmitted', true);
 
-            this.$('.buttons-action').addClass('disabled').attr('disabled', true);
-            this.$('.buttons-action-fullwidth').addClass('disabled').attr('disabled', true);
-
-            this.$('.textEntry-audio-item-textbox').attr('disabled', true);
-
             if (this.model.get('_canShowFeedback')) {
-              this.$('.buttons-feedback').attr('disabled', false);
+              this.$('.btn__feedback').attr('disabled', false).removeClass('is-disabled');
             }
+
+            this.$('.btn__action').html(this.model.get("_buttons")._reset.buttonText);
+            this.$('.btn__action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel).removeClass('is-disabled');
 
             this.updateCounter();
         },
 
+        resetUserAnswer: function() {
+          this.model.set('_isSubmitted', false);
+          this.model.set('userAnswer', '');
+
+          this.$('.textEntry-audio-item-textbox').val('');
+
+          this.$('.btn__action').addClass('is-disabled');
+
+          this.$('.btn__feedback').attr('disabled', true).addClass('is-disabled');
+
+          this.updateCounter();
+        },
+
         onInputChanged: function(event) {
           if (event) event.preventDefault();
+
+          this.$('.btn__action').removeClass('is-disabled');
 
           this.updateCounter();
         },
