@@ -16,6 +16,8 @@ define([
         initialize: function() {
             ComponentView.prototype.initialize.call(this);
             this.setUpViewData();
+
+            this.listenTo(Adapt.config, 'change:_activeLanguage', this.resetUserAnswers);
         },
 
         setUpViewData: function() {
@@ -116,6 +118,29 @@ define([
             }
 
             this.updateCounter();
+        },
+
+        resetUserAnswers: function() {
+            this.model.set('userAnswer', "");
+
+            this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer'));
+
+            this.model.set('_isSubmitted', false);
+
+            this.$('.buttons-action').removeClass('disabled').attr('disabled', false);
+            this.$('.buttons-action-fullwidth').removeClass('disabled').attr('disabled', false);
+
+            this.$('.textEntry-audio-item-textbox').attr('disabled', false);
+
+            if (this.model.get('_canShowFeedback')) {
+              this.$('.buttons-feedback').attr('disabled', true);
+            }
+
+            this.updateCounter();
+
+            this.model.reset(true);
+
+            Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
         },
 
         onInputChanged: function(event) {
