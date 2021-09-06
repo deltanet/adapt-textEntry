@@ -15,6 +15,8 @@ define([
         initialize: function() {
             ComponentView.prototype.initialize.call(this);
             this.setUpViewData();
+
+            this.listenTo(Adapt.config, 'change:_activeLanguage', this.resetUserAnswers);
         },
 
         setUpViewData: function() {
@@ -38,27 +40,16 @@ define([
 
           if (this.$('.textEntry-audio-item-textbox').val() == "") return;
 
-          if (this.model.get('_isSubmitted')) {
+          this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
+          this.model.set("userAnswer", this.userAnswer);
 
-            $(event.currentTarget).html(this.model.get("_buttons")._submit.buttonText);
-            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._submit.ariaLabel);
+          this.initFeedback();
 
-            this.resetUserAnswer();
+          this.model.set('_isSubmitted', true);
 
-          } else {
+          this.$('.btn__action').addClass('is-disabled').attr('disabled', true);
 
-            this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
-            this.model.set("userAnswer", this.userAnswer);
-
-            this.initFeedback();
-
-            $(event.currentTarget).html(this.model.get("_buttons")._reset.buttonText);
-            $(event.currentTarget).attr('aria-label', this.model.get("_buttons")._reset.ariaLabel);
-
-            this.model.set('_isSubmitted', true);
-
-            this.$('.btn__feedback').removeClass('is-disabled');
-          }
+          this.$('.textEntry-audio-item-textbox').attr('disabled', true);
 
           Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
 
@@ -115,27 +106,38 @@ define([
 
             this.model.set('_isSubmitted', true);
 
+            this.$('.btn__action').html(this.model.get("_buttons")._reset.buttonText);
+            this.$('.btn__action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel).removeClass('is-disabled');
+
+            this.$('.textEntry-audio-item-textbox').attr('disabled', true);
+
             if (this.model.get('_canShowFeedback')) {
               this.$('.btn__feedback').attr('disabled', false).removeClass('is-disabled');
             }
 
-            this.$('.btn__action').html(this.model.get("_buttons")._reset.buttonText);
-            this.$('.btn__action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel).removeClass('is-disabled');
-
             this.updateCounter();
         },
 
-        resetUserAnswer: function() {
-          this.model.set('_isSubmitted', false);
+        resetUserAnswers: function() {
           this.model.set('userAnswer', '');
 
           this.$('.textEntry-audio-item-textbox').val('');
 
+          this.model.set('_isSubmitted', false);
+
           this.$('.btn__action').addClass('is-disabled');
 
-          this.$('.btn__feedback').attr('disabled', true).addClass('is-disabled');
+          this.$('.textEntry-audio-item-textbox').attr('disabled', false);
+
+          if (this.model.get('_canShowFeedback')) {
+            this.$('.btn__feedback').attr('disabled', true).addClass('is-disabled');
+          }
 
           this.updateCounter();
+
+          this.model.reset(true);
+
+          Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
         },
 
         onInputChanged: function(event) {
