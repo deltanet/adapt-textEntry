@@ -100,6 +100,8 @@ define([
 
             if (!storedAnswer) return;
 
+            this.setCompletionStatus();
+
             this.model.set('userAnswer', storedAnswer);
 
             this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer'));
