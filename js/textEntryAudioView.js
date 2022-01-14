@@ -59,7 +59,7 @@ define([
 
       initFeedback: function() {
         if (this.model.get('_canShowFeedback')) {
-          this.$('.btn__feedback').attr('disabled', false);
+          this.$('.btn__feedback').removeClass('is-disabled').attr('disabled', false);
           this.openPopup();
         } else {
           this.setCompletionStatus();
