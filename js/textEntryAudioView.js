@@ -38,6 +38,8 @@ define([
         onBtnClicked: function(event) {
           if (event) event.preventDefault();
 
+          if (this.model.get('_isSubmitted')) return;
+
           if (this.$('.textEntry-audio-item-textbox').val() == "") return;
 
           this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
@@ -96,28 +98,24 @@ define([
         },
 
         restoreUserAnswers: function() {
-            var storedAnswer = Adapt.offlineStorage.get(this.model.get('_id'));
+          var storedAnswer = Adapt.offlineStorage.get(this.model.get('_id'));
 
-            if (!storedAnswer) return;
+          if (!storedAnswer) return;
 
-            this.setCompletionStatus();
+          this.setCompletionStatus();
 
-            this.model.set('userAnswer', storedAnswer);
+          this.model.set('userAnswer', storedAnswer);
+          this.model.set('_isSubmitted', true);
 
-            this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer'));
+          this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer')).attr('disabled', true);
 
-            this.model.set('_isSubmitted', true);
+          this.$('.btn__action').addClass('is-disabled').attr('disabled', true);
 
-            this.$('.btn__action').html(this.model.get("_buttons")._reset.buttonText);
-            this.$('.btn__action').attr('aria-label', this.model.get("_buttons")._reset.ariaLabel).removeClass('is-disabled');
+          if (this.model.get('_canShowFeedback')) {
+            this.$('.btn__feedback').attr('disabled', false).removeClass('is-disabled');
+          }
 
-            this.$('.textEntry-audio-item-textbox').attr('disabled', true);
-
-            if (this.model.get('_canShowFeedback')) {
-              this.$('.btn__feedback').attr('disabled', false).removeClass('is-disabled');
-            }
-
-            this.updateCounter();
+          this.updateCounter();
         },
 
         resetUserAnswers: function() {
