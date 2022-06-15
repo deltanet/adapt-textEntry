@@ -1,12 +1,8 @@
-define([
-    'core/js/adapt',
-    './textEntryAudioView',
-    'core/js/models/componentModel'
-], function(Adapt, TextEntryAudioView, ComponentModel) {
+import Adapt from 'core/js/adapt';
+import TextEntryAudioModel from './textEntryAudioModel';
+import TextEntryAudioView from './textEntryAudioView';
 
-    return Adapt.register('textEntry-audio', {
-        view: TextEntryAudioView,
-        model: ComponentModel.extend({})
-    });
-
+export default Adapt.register('textEntry-audio', {
+  model: TextEntryAudioModel,
+  view: TextEntryAudioView
 });
