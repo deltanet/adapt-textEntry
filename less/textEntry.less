@@ -1,12 +1,12 @@
 .textentry-audio {
 
-  .textEntry-audio-input {
+  &__input {
     margin-left: auto;
     margin-right: auto;
     padding: 0 0 @item-padding 0;
   }
 
-  .textEntry-audio-item-textbox {
+  &__input-textbox {
     display: block;
     box-sizing: border-box;
     resize: none;
@@ -14,9 +14,13 @@
     padding: @item-padding;
     border: 1px solid @item-color;
     margin: 0;
+
+    &.is-disabled {
+      border: 1px solid @disabled;
+    }
   }
 
-  .textEntry-audio-counter {
+  &__counter {
     color: @item-color-inverted;
     background-color: @item-color;
     padding: @notify-body-margin;
@@ -24,9 +28,9 @@
   }
 }
 
-.textEntry-audio-popup {
+.textentry-audio-popup {
 
-  .textEntry-popup-user-title {
+  &__user-title {
     margin-bottom: @notify-title-margin;
     text-align: left;
     font-weight: @font-weight-bold;
@@ -35,7 +39,7 @@
     }
   }
 
-  .textEntry-popup-user-answer {
+  &__user-answer {
     margin-bottom: @notify-body-margin;
     text-align: left;
     .dir-rtl & {
@@ -43,7 +47,7 @@
     }
   }
 
-  .textEntry-popup-feedback-title {
+  &__feedback-title {
     margin-bottom: @notify-title-margin;
     text-align: left;
     font-weight: @font-weight-bold;
@@ -52,7 +56,7 @@
     }
   }
 
-  .textEntry-popup-body {
+  &__body {
     padding-bottom: @notify-body-margin;
     font-size: @body-size;
     float: left;

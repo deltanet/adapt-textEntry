@@ -80,9 +80,9 @@ Several elements of **Text Entry** have been assigned a label using the [aria-la
 No known limitations.  
 
 ----------------------------
-**Version number:**  5.2.0     
-**Framework versions supported:**  5.8+     
-**Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)     
-**Accessibility support:** yes  
-**RTL support:** yes     
+**Version number:**  6.0.0
+**Framework versions supported:**  5.20.1+
+**Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-textEntry-audio/graphs/contributors)
+**Accessibility support:** yes
+**RTL support:** yes
 **Authoring tool support:** Yes

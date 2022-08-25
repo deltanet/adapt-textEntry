@@ -1,14 +1,15 @@
 import Adapt from 'core/js/adapt';
+import notify from 'core/js/notify';
 import ComponentView from 'core/js/views/componentView';
-import TextEntryAudioPopupView from './textEntryAudioPopupView';
+import TextEntryPopupView from './textEntryPopupView';
 
-class TextEntryAudioView extends ComponentView {
+class TextEntryView extends ComponentView {
 
   events() {
     return {
       'click .js-btn-action': 'onBtnClicked',
       'click .js-btn-feedback': 'openPopup',
-      'keyup .textEntry-audio-item-textbox': 'onInputChanged'
+      'keyup .textentry-audio__input-textbox': 'onInputChanged'
     };
   }
 
@@ -44,9 +45,9 @@ class TextEntryAudioView extends ComponentView {
 
     if (this.model.get('_isSubmitted')) return;
 
-    if (this.$('.textEntry-audio-item-textbox').val() == "") return;
+    if (this.$('.textentry-audio__input-textbox').val() == "") return;
 
-    this.userAnswer = this.$('.textEntry-audio-item-textbox').val();
+    this.userAnswer = this.$('.textentry-audio__input-textbox').val();
     this.model.set("userAnswer", this.userAnswer);
 
     this.initFeedback();
@@ -55,7 +56,7 @@ class TextEntryAudioView extends ComponentView {
 
     this.$('.btn__action').addClass('is-disabled').attr('disabled', true);
 
-    this.$('.textEntry-audio-item-textbox').attr('disabled', true);
+    this.$('.textentry-audio__input-textbox').addClass('is-disabled').attr('disabled', true);
 
     Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
 
@@ -79,16 +80,16 @@ class TextEntryAudioView extends ComponentView {
 
     Adapt.trigger('audio:stopAllChannels');
 
-    this.popupView = new TextEntryAudioPopupView({
+    this.popupView = new TextEntryPopupView({
       model: this.model
     });
 
-    Adapt.notify.popup({
+    notify.popup({
       _view: this.popupView,
       _isCancellable: true,
       _showCloseButton: false,
       _closeOnBackdrop: true,
-      _classes: 'textEntry-audio-popup'
+      _classes: 'textentry-audio-popup'
     });
 
     this.listenToOnce(Adapt, {
@@ -111,7 +112,7 @@ class TextEntryAudioView extends ComponentView {
     this.model.set('userAnswer', storedAnswer);
     this.model.set('_isSubmitted', true);
 
-    this.$('.textEntry-audio-item-textbox').val(this.model.get('userAnswer')).attr('disabled', true);
+    this.$('.textentry-audio__input-textbox').val(this.model.get('userAnswer')).addClass('is-disabled').attr('disabled', true);
 
     this.$('.btn__action').addClass('is-disabled').attr('disabled', true);
 
@@ -125,13 +126,13 @@ class TextEntryAudioView extends ComponentView {
   resetUserAnswers() {
     this.model.set('userAnswer', '');
 
-    this.$('.textEntry-audio-item-textbox').val('');
+    this.$('.textentry-audio__input-textbox').val('');
 
     this.model.set('_isSubmitted', false);
 
     this.$('.btn__action').addClass('is-disabled');
 
-    this.$('.textEntry-audio-item-textbox').attr('disabled', false);
+    this.$('.textentry-audio__input-textbox').removeClass('is-disabled').attr('disabled', false);
 
     if (this.model.get('_canShowFeedback')) {
       this.$('.btn__feedback').attr('disabled', true).addClass('is-disabled');
@@ -156,12 +157,12 @@ class TextEntryAudioView extends ComponentView {
     if (!this.model.get('_characterLimit')) return;
     if (!this.model.get('_characterLimit')._isEnabled) return;
 
-    const length = this.$('.textEntry-audio-item-textbox').val().length;
+    const length = this.$('.textentry-audio__input-textbox').val().length;
     const max = this.model.get('_characterLimit')._max;
     const text = this.model.get('_characterLimit').text;
     const output = text+" "+(max - length);
 
-    this.$('.textEntry-audio-counter').html(output);
+    this.$('.textentry-audio__counter').html(output);
   }
 
   isCorrect() {
@@ -190,6 +191,6 @@ class TextEntryAudioView extends ComponentView {
   }
 }
 
-TextEntryAudioView.template = 'textEntry-audio';
+TextEntryView.template = 'textEntry';
 
-export default TextEntryAudioView;
+export default TextEntryView;

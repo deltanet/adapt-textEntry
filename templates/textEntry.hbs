@@ -1,11 +1,11 @@
-<div class="textEntry-audio-inner component__inner">
+<div class="textentry-audio__inner component__inner">
   {{> component this}}
-  <div class="textEntry-audio-widget component__widget">
-  	<div class="textEntry-audio-input">
-      <textarea placeholder="{{compile placeholder}}" class="textEntry-audio-item-textbox" cols="2" rows="10"{{#if _characterLimit._isEnabled}} maxlength={{_characterLimit._max}}{{/if}}></textarea>
+  <div class="textentry-audio__widget component__widget">
+  	<div class="textentry-audio__input">
+      <textarea placeholder="{{compile placeholder}}" class="textentry-audio__input-textbox" cols="2" rows="10"{{#if _characterLimit._isEnabled}} maxlength={{_characterLimit._max}}{{/if}}></textarea>
   	</div>
     {{#if _characterLimit._isEnabled}}
-      <div class="textEntry-audio-counter"></div>
+      <div class="textentry-audio__counter"></div>
     {{/if}}
   </div>
 

@@ -1,14 +1,14 @@
 import Adapt from 'core/js/adapt';
 
-class TextEntryAudioPopupView extends Backbone.View {
+class TextEntryPopupView extends Backbone.View {
 
   className() {
-      return 'textEntry-audio-popup-content';
+      return 'textentry-audio-popup__content';
     }
 
   events() {
     return {
-      'click .textEntry-close-button': 'closePopup'
+      'click .js-textentry-close-button': 'closePopup'
     };
   }
 
@@ -42,6 +42,6 @@ class TextEntryAudioPopupView extends Backbone.View {
   }
 }
 
-TextEntryAudioPopupView.template = 'textEntryAudioPopup';
+TextEntryPopupView.template = 'textEntryPopup';
 
-export default TextEntryAudioPopupView;
+export default TextEntryPopupView;
