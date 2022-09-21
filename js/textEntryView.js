@@ -1,5 +1,6 @@
 import Adapt from 'core/js/adapt';
 import notify from 'core/js/notify';
+import offlineStorage from 'core/js/offlineStorage';
 import ComponentView from 'core/js/views/componentView';
 import TextEntryPopupView from './textEntryPopupView';
 
@@ -58,7 +59,7 @@ class TextEntryView extends ComponentView {
 
     this.$('.textentry-audio__input-textbox').addClass('is-disabled').attr('disabled', true);
 
-    Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
+    offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
 
     if (!this.model.get('_recordInteraction')) return;
     Adapt.trigger('questionView:recordInteraction', this);
@@ -103,7 +104,7 @@ class TextEntryView extends ComponentView {
   }
 
   restoreUserAnswers() {
-    const storedAnswer = Adapt.offlineStorage.get(this.model.get('_id'));
+    const storedAnswer = offlineStorage.get(this.model.get('_id'));
 
     if (!storedAnswer) return;
 
@@ -142,7 +143,7 @@ class TextEntryView extends ComponentView {
 
     this.model.reset(true);
 
-    Adapt.offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
+    offlineStorage.set(this.model.get('_id'), this.model.get("userAnswer"));
   }
 
   onInputChanged(event) {
